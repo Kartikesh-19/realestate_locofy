@@ -3,28 +3,6 @@ import "antd/dist/antd.min.css";
 import { Menu, Dropdown, Button } from "antd";
 import {
   DownOutlined,
-  ArrowLeftOutlined,
-  ArrowRightOutlined,
-  CalendarOutlined,
-  CheckOutlined,
-  ClockCircleOutlined,
-  CloseOutlined,
-  DeleteOutlined,
-  EditOutlined,
-  ExclamationCircleOutlined,
-  HeartOutlined,
-  LeftOutlined,
-  LockOutlined,
-  MailOutlined,
-  PaperClipOutlined,
-  PhoneOutlined,
-  QuestionCircleOutlined,
-  ReloadOutlined,
-  RightOutlined,
-  SearchOutlined,
-  SendOutlined,
-  ShareAltOutlined,
-  UserOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
 
@@ -32,7 +10,7 @@ const Hero = () => {
   const router = useRouter();
 
   const onSearchCTAClick = useCallback(() => {
-    router.push("/");
+    router.push("/properties");
   }, [router]);
 
   return (
@@ -67,7 +45,32 @@ const Hero = () => {
                 <div className="relative leading-[24px] capitalize font-semibold">
                   Locations
                 </div>
-                <a className="[text-decoration:none] flex flex-row items-center justify-start gap-[4px] text-left text-lightslategray">
+                  <Dropdown
+                  className="self-stretch"
+                  overlay={
+                    <Menu>
+                      {[
+                        { value: "New York" },
+                        { value: "Los Angeles" },
+                        
+                      ].map((option, index) => (
+                        <Menu.Item key={index}>
+                          <a onClick={(e) => e.preventDefault()}>
+                            {option.value || ""}
+                          </a>
+                        </Menu.Item>
+                      ))}
+                    </Menu>
+                  }
+                  placement="bottomLeft"
+                  trigger={["hover"]}
+                >
+                  <a onClick={(e) => e.preventDefault()}>
+                    {`Select your city `}
+                    <DownOutlined />
+                  </a>
+                </Dropdown>
+                {/* <a className="[text-decoration:none] flex flex-row items-center justify-start gap-[4px] text-left text-lightslategray">
                   <div className="relative leading-[24px]">
                     Select your city
                   </div>
@@ -76,7 +79,7 @@ const Hero = () => {
                     alt=""
                     src="/vector.svg"
                   />
-                </a>
+                </a> */}
               </div>
               <div className="w-[177px] flex flex-col items-start justify-start gap-[16px]">
                 <div className="relative leading-[24px] capitalize font-semibold flex items-end w-[150px]">

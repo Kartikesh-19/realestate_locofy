@@ -16,96 +16,24 @@ const RentPropertiesForm = () => {
         </div>
         <div className="self-stretch flex flex-row flex-wrap py-0 px-2.5 items-center justify-center gap-[32px]">
           <PropertyCard
-            imageDimensions="/unsplashrlwe8f8anoc7@2x.png"
-            imageDimensionIds="/car5.svg"
-            imageDimensionValues="/bathtub5.svg"
-            imageDimensionIdsAndValue="/arrowsout2.svg"
-            imageDimensionIdsAndValue2="/ellipse-1@2x.png"
-            imageDimensionIdsAndValue3="/sharenetwork6.svg"
-            imageDimensionIdsAndValue4="/heart2.svg"
-            imageDimensionIdsAndValue5="/plus7.svg"
-            propWidth="unset"
-            propFlex="1"
-            propMinWidth="355px"
-            propMaxWidth="400px"
-            propBoxSizing="border-box"
-            propDisplay="inline-block"
-            propBoxSizing1="border-box"
-            propDisplay1="inline-block"
-            propBoxSizing2="border-box"
-            propDisplay2="inline-block"
-            propDisplay3="inline-block"
-            propDisplay4="inline-block"
-            propDisplay5="inline-block"
+            imgUrl="/unsplashrlwe8f8anoc7@2x.png"
+            name='91 Allium Place, Orlando fl 32456'
+            price='591,632'
           />
           <PropertyCard
-            imageDimensions="/unsplashrlwe8f8anoc8@2x.png"
-            imageDimensionIds="/car5.svg"
-            imageDimensionValues="/bathtub5.svg"
-            imageDimensionIdsAndValue="/arrowsout2.svg"
-            imageDimensionIdsAndValue2="/ellipse-1@2x.png"
-            imageDimensionIdsAndValue3="/sharenetwork6.svg"
-            imageDimensionIdsAndValue4="/heart2.svg"
-            imageDimensionIdsAndValue5="/plus8.svg"
-            propWidth="unset"
-            propFlex="1"
-            propMinWidth="355px"
-            propMaxWidth="400px"
-            propBoxSizing="border-box"
-            propDisplay="inline-block"
-            propBoxSizing1="border-box"
-            propDisplay1="inline-block"
-            propBoxSizing2="border-box"
-            propDisplay2="inline-block"
-            propDisplay3="inline-block"
-            propDisplay4="inline-block"
-            propDisplay5="inline-block"
+            imgUrl="/unsplashrlwe8f8anoc8@2x.png"
+            name='91 Allium Place, Orlando fl 32456'
+            price='591,632'
           />
           <PropertyCard
-            imageDimensions="/unsplashrlwe8f8anoc9@2x.png"
-            imageDimensionIds="/car6.svg"
-            imageDimensionValues="/bathtub.svg"
-            imageDimensionIdsAndValue="/arrowsout3.svg"
-            imageDimensionIdsAndValue2="/ellipse-1@2x.png"
-            imageDimensionIdsAndValue3="/sharenetwork7.svg"
-            imageDimensionIdsAndValue4="/heart2.svg"
-            imageDimensionIdsAndValue5="/plus3.svg"
-            propWidth="unset"
-            propFlex="1"
-            propMinWidth="355px"
-            propMaxWidth="400px"
-            propBoxSizing="border-box"
-            propDisplay="inline-block"
-            propBoxSizing1="border-box"
-            propDisplay1="inline-block"
-            propBoxSizing2="border-box"
-            propDisplay2="inline-block"
-            propDisplay3="inline-block"
-            propDisplay4="inline-block"
-            propDisplay5="inline-block"
+            imgUrl="/unsplashrlwe8f8anoc9@2x.png"
+            name='91 Allium Place, Orlando fl 32456'
+            price='591,632'
           />
           <PropertyCard
-            imageDimensions="/unsplashrlwe8f8anoc10@2x.png"
-            imageDimensionIds="/car6.svg"
-            imageDimensionValues="/bathtub.svg"
-            imageDimensionIdsAndValue="/arrowsout3.svg"
-            imageDimensionIdsAndValue2="/ellipse-1@2x.png"
-            imageDimensionIdsAndValue3="/sharenetwork7.svg"
-            imageDimensionIdsAndValue4="/heart2.svg"
-            imageDimensionIdsAndValue5="/plus3.svg"
-            propWidth="unset"
-            propFlex="1"
-            propMinWidth="355px"
-            propMaxWidth="400px"
-            propBoxSizing="border-box"
-            propDisplay="inline-block"
-            propBoxSizing1="border-box"
-            propDisplay1="inline-block"
-            propBoxSizing2="border-box"
-            propDisplay2="inline-block"
-            propDisplay3="inline-block"
-            propDisplay4="inline-block"
-            propDisplay5="inline-block"
+            imgUrl="/unsplashrlwe8f8anoc10@2x.png"
+            name='91 Allium Place, Orlando fl 32456'
+            price='591,632'
           />
         </div>
       </div>
