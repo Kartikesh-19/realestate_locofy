@@ -1,7 +1,28 @@
+let obj={
+home:"HOME",
+about_us:"ABOUT US",
+our_agents:"OUR AGENTS",
+properties:"PROPERTIES",
+gallery:"GALLERY",
+blog:"BLOG",
+contact:"CONTACT US",
+search:"SEARCH",
+}
 import Link from 'next/link'
 import {useRouter} from 'next/router'
-const Header = ({ hamburger }) => {
-  const router=useRouter()
+import React,{useState} from 'react';
+
+
+const Header = ({ hamburger}) => {
+  const router=useRouter();
+  const [count, setCount]=useState(0)
+    const [activeClass , setActiveClass]=useState(false)
+    const handleTabs=(key,val)=>{
+      setActiveClass(true); 
+      console.warn('=======================================================',activeClass)
+      setCount(val); 
+      key?router.push('/properties'):router.push('/')
+    }
   return (
     <header className="self-stretch bg-gray-white h-[98px] flex flex-row py-[22px] px-20 box-border items-center justify-center sticky w-full top-[0] [background:white] z-[2] text-center text-5xl text-primary-500 font-body-regular-600 lg:pl-10 lg:pr-10 lg:box-border md:pl-6 md:pr-6 md:box-border">
       <div className="flex-1 flex flex-row items-center justify-between">
@@ -16,23 +37,17 @@ const Header = ({ hamburger }) => {
         </Link>
         <div className="flex flex-row items-center justify-end gap-[36px] text-sm text-primary-900 sm:flex">
           <div className="flex flex-row items-start justify-start gap-[30px] lg:hidden">
-            <div className="leading-[22px]" onClick={()=>router.push('/')}
-            >HOME</div>
-            <div className="leading-[22px]" 
-            // onClick={()=>router.push('/')}
-             >ABOUT US</div>
-            <div className="leading-[22px]" 
-            // onClick={()=>router.push('/')}
-             >OUR AGENTS</div>
-            <div className="leading-[22px] font-semibold" onClick={()=>router.push('/properties')}
-            >
-              PROPERTIES
+            {Object.keys(obj).map((key,val)=>{
+              
+             return (
+             <div className={ `leading-[22px] ${
+             activeClass && count===val
+            ? "font-semibold":""}`} 
+            onClick={()=>{handleTabs(obj[key]==="PROPERTIES",val)}}
+            >{obj[key]}
             </div>
-            <div className="relative leading-[22px]">GALLERY</div>
-            <div className="relative leading-[22px]">BLOG</div>
-            <div className="relative leading-[22px]">CONTACT US</div>
-            <div className="relative leading-[22px]">SEARCH</div>
-          </div>
+            )})}
+          </div> 
           {!hamburger && (
             <button className="cursor-pointer [border:none] p-0 bg-[transparent] hidden flex-row items-center justify-center lg:flex">
               <img

@@ -8,6 +8,8 @@ import RentPropertiesFilter from "../components/rent-properties-filter";
 import Contact from "../components/contact";
 import Footer from "../components/footer";
 import PropertiesGridView from "./properties";
+import React,{useState} from 'react';
+import { useLocation } from "react-router-dom";
 
 const LandingPage = () => {
   return (
@@ -17,7 +19,7 @@ const LandingPage = () => {
         <meta name="description" content="Discover your perfect home" />
       </Head>
       <div className="relative bg-gray-white w-full flex flex-col items-center justify-start">
-        <Header hamburger={false} />
+        <Header {...{hamburger:false}} />
         <Hero />
         <AreaContainer />
         <AreaFeatureCardContainer />
