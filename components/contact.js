@@ -1,4 +1,18 @@
+let contact_states={
+  fname:null,
+  lname:null,
+  email:null,
+  textArea:null
+}
+import React from 'react';
 const Contact = () => {
+  const [state, setState]=React.useState(contact_states)
+  function handleChange(key, val){
+    setState({
+      ...state,
+      [key]:val
+    }) 
+  }
   return (
     <div className="self-stretch bg-primary-50 flex flex-row flex-wrap py-[86px] px-[5px] items-start justify-center text-center text-21xl text-primary-800 font-body-regular-600">
       <div className="flex-1 flex flex-col py-0 px-2.5 box-border items-center justify-start gap-[40px] max-w-[900px]">
@@ -22,21 +36,35 @@ const Contact = () => {
           </div>
           <div className="self-stretch flex flex-col items-center justify-start gap-[10px]">
             <input
-              className="[border:none] font-roboto text-base bg-[transparent] self-stretch flex flex-row items-start justify-center md:flex-col md:gap-[10px] md:items-start md:justify-center"
+              className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
               type="text"
-              defaultValue="Last name"
+              value={state?.fname}
+              onChange={(e)=>handleChange('fname',e.target.value )}
               placeholder="First name"
+              maxLength={100}
+              minLength={2}
+            />
+            <input
+             className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
+              type="text"
+              value={state?.lname}
+                 onChange={(e)=>handleChange('lname',e.target.value )}
+              placeholder="Last name"
               maxLength={100}
               minLength={2}
             />
             <input
               className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
               type="email"
+              value={state?.email}
+              onChange={(e)=>handleChange('email',e.target.value )}
               placeholder="Email id"
               required
             />
             <textarea
               className="bg-[transparent] h-[105px] font-roboto text-base self-stretch rounded box-border flex flex-col p-3 items-start justify-start border-[1px] border-solid border-gray"
+              value={state?.textArea}
+              onChange={(e)=>handleChange('textArea',e.target.value )}
               placeholder="Comments or questions"
               required
               rows={10}
