@@ -1,7 +1,7 @@
 import { useMemo,useState } from "react";
 
 const InfoCard = ({ homeSaleRentId, homeSaleRentText, propWidth }) => {
-  const [showMoreContent, setShowMoreContent]=useState(false)
+  const [showMoreContent, setShowMoreContent]=useState(true)
   const sellYourHomeStyle = useMemo(() => {
     return {
       width: propWidth,
