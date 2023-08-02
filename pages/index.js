@@ -3,7 +3,7 @@ import Header from "../components/header";
 import Hero from "../components/hero";
 import AreaContainer from "../components/area-container";
 import AreaFeatureCardContainer from "../components/area-feature-card-container";
-import RentPropertiesForm from "../components/rent-properties-form";
+import RentPropertiesForm from "../components/rent";
 import RentPropertiesFilter from "../components/rent-properties-filter";
 import Contact from "../components/contact";
 import Footer from "../components/footer";

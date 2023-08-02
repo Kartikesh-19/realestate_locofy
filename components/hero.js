@@ -1,4 +1,4 @@
-import { useCallback,useState } from "react";
+import { useCallback,useState, } from "react";
 import "antd/dist/antd.min.css";
 import { Menu, Dropdown, Button } from "antd";
 import hero_states from "./constants";
@@ -29,12 +29,16 @@ const Hero = () => {
         </div>
         <div className="self-stretch flex flex-col items-center justify-start gap-[17px] text-left text-base text-primary-700 font-body-regular-600">
           <div className="flex flex-row items-start justify-start gap-[10px]">
-            <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded overflow-hidden flex flex-row items-start justify-start">
+            <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded overflow-hidden flex flex-row items-start justify-start" 
+            onClick={()=>router.push('/properties')}
+            >
               <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-gray-white text-center">
                 Rent
               </div>
             </button>
-            <button className="cursor-pointer [border:none] py-3 px-6 bg-gray-white rounded overflow-hidden flex flex-row items-start justify-start">
+            <button className="cursor-pointer [border:none] py-3 px-6 bg-gray-white rounded overflow-hidden flex flex-row items-start justify-start"
+            
+            >
               <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-primary-400 text-center">
                 Sale
               </div>
