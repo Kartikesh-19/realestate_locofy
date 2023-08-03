@@ -18,7 +18,7 @@ import React,{useState} from 'react';
         case "about_us":
          return "AboutUs";
         case "our_agents":
-        return "/ourAgents";
+        return "/Ouragents";
         case "properties":
         return "/properties";
         case "gallery":

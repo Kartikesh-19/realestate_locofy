@@ -68,15 +68,29 @@ const PropertiesGridView = () => {
             </div>
             <div className="leading-[24px]">Sort by:</div>
             <Dropdown
-              menu={{tems:defaultOrder}}
-              placement="bottomLeft"
-              trigger={["hover"]}
-            >
-              <a onClick={(e) => e.preventDefault()}>
-                {`Default Order `}
-                <DownOutlined />
-              </a>
-            </Dropdown>
+                  className="self-stretch"
+                  overlay={
+                    <Menu>
+                      {[
+                        { value: "Name" },
+                        { value: "Date" },                       
+                      ].map((option, index) => (
+                        <Menu.Item key={index}>
+                          <a onClick={(e) => {e.preventDefault()}}>
+                            {option.value || ""}
+                          </a>
+                        </Menu.Item>
+                      ))}
+                    </Menu>
+                  }
+                  placement="bottomLeft"
+                  trigger={["hover"]}
+                >
+                  <a onClick={(e) => e.preventDefault()}>
+                    { `Default Order`}
+                    <DownOutlined />
+                  </a>
+                </Dropdown>
           </div>
         </div>
         <PropertiesGrid allProperties={properties} />
