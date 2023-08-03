@@ -14,143 +14,53 @@ const Ouragents = () => {
   }, [router]);
 
   return (
-    <>
+   <>
   <Header {...{hamburger:false}} />
-    <div className="self-stretch flex flex-col py-[120px] px-[30px] items-center justify-start bg-[url(/hero-section@3x.png)] bg-cover bg-no-repeat bg-[top] text-center text-33xl text-gray-white font-body-regular-400">
+    <div className="self-stretch flex flex-col py-[120px] px-[30px] items-center justify-start bg-[url(/unsplashrlwe8f8anoc10@2x.png)] bg-cover bg-no-repeat bg-[top] text-center text-33xl text-gray-white font-body-regular-400">
       <div className="self-stretch flex flex-col items-center justify-center gap-[62px] max-w-[95%px]">
         <div className="self-stretch flex flex-col items-center justify-start gap-[24px] md:max-w-full">
-          <div className="self-stretch relative leading-[72px] font-semibold">
-            Find Your Dream Home
+          <div className="self-stretch text-black-600 relative leading-[72px] font-semibold">
+            Our Agents
+          </div>
+          <br/>
+         <div className="self-stretch flex flex-col items-center justify-start gap-[24px]">
+            <div className="self-stretch relative text-xl leading-[28px] font-body-regular-800 text-primary-50">
+            Start with the prospect, not with you.
+          </div>
+          <div className="self-stretch relative text-sm leading-[28px] font-body-regular-600 text-primary-50">
+           It’s tempting to begin your ABOUT page with your credentials. But that is actually a turn-off for most prospects. It’s like meeting someone at a dinner party and beginning the conversation by talking about yourself.
+           Your ABOUT page should talk about the prospect first. Here’s an example…
+          If you’re like many South Georgetown homeowners, you’re concerned about selling in today’s unpredictable market. But you don’t have to be. For 5 years, I’ve been a top seller in the area. I know the nuances of this market and how to sell your home quickly and for the best price.
           </div>
           <div className="self-stretch relative text-xl leading-[28px] font-body-regular-600 text-primary-50">
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia curae; Proin sodales ultrices nulla blandit
-            volutpat.
+             Turn features into benefits.
           </div>
-        </div>
-        <div className="self-stretch flex flex-col items-center justify-start gap-[17px] text-left text-base text-primary-700 font-body-regular-600">
-          <div className="flex flex-row items-start justify-start gap-[10px]">
-            <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded overflow-hidden flex flex-row items-start justify-start" 
-            onClick={()=>router.push('/properties')}
-            >
-              <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-gray-white text-center">
-                Rent
-              </div>
-            </button>
-            <button className="cursor-pointer [border:none] py-3 px-6 bg-gray-white rounded overflow-hidden flex flex-row items-start justify-start">
-              <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-primary-400 text-center">
-                Sale
-              </div>
-            </button>
+          <div className="self-stretch relative text-sm leading-[28px] font-body-regular-600 text-primary-50">
+           Your ABOUT page is like any other selling page. You need to talk about benefits. So whenever you mention something about yourself, make sure you also explain what that means to prospects.A simple way to do this is to start a sentence with “That means”. For example…
+           I’ve helped more than 200 clients buy and sell homes. That means I know exactly how to make the process go smoothly for you.
           </div>
-          <div className="self-stretch flex flex-row flex-wrap items-start justify-center">
-            <div className="flex-1 rounded-lg bg-gray-white flex flex-row py-8 px-[62px] box-border items-center justify-between max-w-[1400px] md:w-[300px] md:flex-col md:gap-[20px] md:items-start md:justify-start md:ml-[auto] md:mr-[auto]">
-              <div className="w-[137px] flex flex-col items-start justify-start gap-[16px] text-center">
-                <div className="relative leading-[24px] capitalize font-semibold">
-                  Locations
-                </div>
-                  <Dropdown
-                  className="self-stretch"
-                  overlay={
-                    <Menu>
-                      {[
-                        { value: "New York" },
-                        { value: "Los Angeles"},
-                        
-                      ].map((option, index) => (
-                        <Menu.Item key={index}>
-                          <a onClick={(e) =>{ e.preventDefault()}}>
-                            {option.value || ""}
-                          </a>
-                        </Menu.Item>
-                      ))}
-                    </Menu>
-                  }
-                  placement="bottomLeft"
-                  trigger={["hover"]}
-                >
-                  <a onClick={(e) => e.preventDefault()}>
-                    { ` Select your city`}
-                    <DownOutlined />
-                  </a>
-                </Dropdown>
-              </div>
-              <div className="w-[177px] flex flex-col items-start justify-start gap-[16px]">
-                <div className="relative leading-[24px] capitalize font-semibold flex items-end w-[150px]">
-                  Property Type
-                </div>
-                <Dropdown
-                  className="self-stretch"
-                  overlay={
-                    <Menu>
-                      {[
-                        { value: "Studio apartments" },
-                        { value: "One-bedroom apartments" },
-                        { value: "Two-bedroom apartments" },
-                        { value: "Three-bedroom apartments" },
-                        { value: "Four or more bedroom apartments/houses" },
-                      ].map((option, index) => (
-                        <Menu.Item key={index}>
-                          <a onClick={(e) => {e.preventDefault()}}>
-                            {option.value || ""}
-                          </a>
-                        </Menu.Item>
-                      ))}
-                    </Menu>
-                  }
-                  placement="bottomLeft"
-                  trigger={["hover"]}
-                >
-                  <a onClick={(e) => e.preventDefault()}>
-                    { `Select Property type`}
-                    <DownOutlined />
-                  </a>
-                </Dropdown>
-              </div>
-              <div className="w-[155px] flex flex-col items-start justify-start gap-[16px]">
-                <div className="relative leading-[24px] capitalize font-semibold flex items-end w-[150px]">
-                  Rent Range
-                </div>
-                <Dropdown
-                  className="self-stretch"
-                  overlay={
-                    <Menu>
-                      {[
-                        { value: "$500-$2000" },
-                        { value: "$2500-$10000" },
-                        { value: "$10000+" },
-                      ].map((option, index) => (
-                        <Menu.Item key={index}>
-                          <a onClick={(e) => {e.preventDefault()}}>
-                            {option.value || ""}
-                          </a>
-                        </Menu.Item>
-                      ))}
-                    </Menu>
-                  }
-                  placement="bottomLeft"
-                  trigger={["hover"]}
-                >
-                  <a onClick={(e) => e.preventDefault()}>
-                    { `Select rent range`}
-                    <DownOutlined />
-                  </a>
-                </Dropdown>
-              </div>
-              <button
-                className="cursor-pointer [border:none] py-3 px-6 bg-seagreen rounded w-[102px] flex flex-row box-border items-center justify-center hover:bg-steelblue lg:hover:bg-steelblue"
-                onClick={onSearchCTAClick}
-              >
-                <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-gray-white text-center">
-                  Search
-                </div>
-              </button>
-            </div>
+          <div className="self-stretch relative text-xl leading-[28px] font-body-regular-600 text-primary-50">
+           List your “stand out” credentials.
+          </div>
+          <div className="self-stretch relative text-sm leading-[28px] font-body-regular-600 text-primary-50">
+         If you have credentials — years of experience, awards, sales track record, etc. — that differentiate you from other agents, put those in a bullet list. That way, they’ll stand out.
+          </div>
+          <div className="self-stretch relative text-xl leading-[28px] font-body-regular-600 text-primary-50">
+        Close with a call-to-action.
+          </div>
+          <div className="self-stretch relative text-sm leading-[28px] font-body-regular-600 text-primary-50">
+            Even though your ABOUT page is not supposed to be a strong-selling HOME page or SERVICES page, you should still include a soft call-to-action. Think about what you want prospects to do next, and then invite them to do so. For example…”
+            If you’re looking for a real estate agent with the best track record selling in South Georgetown, let’s talk.
+            Those four simple tips will have a big impact on your ABOUT page. Follow them the next time you’re writing or tweaking your website copy.
           </div>
         </div>
       </div>
+        
+      </div>
     </div>
   </>
+
+
   );
 };
 
