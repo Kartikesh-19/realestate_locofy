@@ -11,15 +11,12 @@ search:"SEARCH",
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import React,{useState} from 'react';
-
-
 const Header = ({ hamburger}) => {
   const router=useRouter();
   const [count, setCount]=useState(0)
     const [activeClass , setActiveClass]=useState(false)
     const handleTabs=(key,val)=>{
       setActiveClass(true); 
-      console.warn('=======================================================',activeClass)
       setCount(val); 
       key?router.push('/properties'):router.push('/')
     }
@@ -38,7 +35,6 @@ const Header = ({ hamburger}) => {
         <div className="flex flex-row items-center justify-end gap-[36px] text-sm text-primary-900 sm:flex">
           <div className="flex flex-row items-start justify-start gap-[30px] lg:hidden">
             {Object.keys(obj).map((key,val)=>{
-              
              return (
              <div className={ `leading-[22px] ${
              activeClass && count===val
