@@ -3,9 +3,7 @@ let property_by_area=[
   {text:"Centerville", value:"25 listings"},
   {text:"Centerville", value:"25 listings"},
   {text:"Centerville", value:"25 listings"},
-  // {text:"Arlington", value:"25 listing"},
-  // {text:"Centerville", value:"25 listings"}
-
+ 
 ]
 
 const AreaContainer = () => {

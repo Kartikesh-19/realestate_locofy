@@ -5,7 +5,6 @@ import AreaContainer from "../components/area-container";
 import AreaFeatureCardContainer from "../components/area-feature-card-container";
 import RentPropertiesForm from "../components/rent";
 import RentPropertiesFilter from "../components/rent-properties-filter";
-import Contact from "../components/contact";
 import Footer from "../components/footer";
 import PropertiesGridView from "./properties";
 import React,{useState} from 'react';
@@ -25,7 +24,7 @@ const LandingPage = () => {
         <AreaFeatureCardContainer />
         <RentPropertiesForm />
         <RentPropertiesFilter />
-        <Contact />
+        {/* <Contact /> */}
         {/* <PropertiesGridView/> */}
         <Footer />
       </div>

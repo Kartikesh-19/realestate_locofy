@@ -4,7 +4,6 @@ const Footer = () => {
   return (
     <div
       className="self-stretch overflow-hidden flex flex-row p-[50px] items-start justify-start md:w-auto md:flex-row sm:flex-col"
-     
     >
       <footer className="flex-1 flex flex-row items-start justify-between text-left text-5xl text-gray-black font-body-regular-400 md:flex-col md:gap-[50px] sm:flex-col sm:gap-[50px]">
         <div className="w-[312px] flex flex-col items-start justify-start gap-[20px] text-center text-primary-500 font-body-regular-600">

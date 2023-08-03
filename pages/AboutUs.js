@@ -1,15 +1,13 @@
 import { useCallback,useState, } from "react";
 import "antd/dist/antd.min.css";
 import { Menu, Dropdown, Button } from "antd";
-import hero_states from "./constants";
 import {
   DownOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
 
-const Hero = () => {
+const AboutUs = () => {
   const router = useRouter();
-  const [state,setState]=useState(hero_states)
   const onSearchCTAClick = useCallback(() => {
     router.push("/properties");
   }, [router]);
@@ -60,7 +58,7 @@ const Hero = () => {
                         
                       ].map((option, index) => (
                         <Menu.Item key={index}>
-                          <a onClick={(e) =>{ e.preventDefault();setState({...state, location:option.value});}}>
+                          <a onClick={(e) =>{ e.preventDefault()}}>
                             {option.value || ""}
                           </a>
                         </Menu.Item>
@@ -71,7 +69,7 @@ const Hero = () => {
                   trigger={["hover"]}
                 >
                   <a onClick={(e) => e.preventDefault()}>
-                    {state?.location || ` Select your city`}
+                    { ` Select your city`}
                     <DownOutlined />
                   </a>
                 </Dropdown>
@@ -92,7 +90,7 @@ const Hero = () => {
                         { value: "Four or more bedroom apartments/houses" },
                       ].map((option, index) => (
                         <Menu.Item key={index}>
-                          <a onClick={(e) => {e.preventDefault();setState({...state, property_type:option.value});}}>
+                          <a onClick={(e) => {e.preventDefault()}}>
                             {option.value || ""}
                           </a>
                         </Menu.Item>
@@ -103,7 +101,7 @@ const Hero = () => {
                   trigger={["hover"]}
                 >
                   <a onClick={(e) => e.preventDefault()}>
-                    {state?.property_type|| `Select Property type`}
+                    { `Select Property type`}
                     <DownOutlined />
                   </a>
                 </Dropdown>
@@ -122,7 +120,7 @@ const Hero = () => {
                         { value: "$10000+" },
                       ].map((option, index) => (
                         <Menu.Item key={index}>
-                          <a onClick={(e) => {e.preventDefault();setState({...state, rent_range:option.value});}}>
+                          <a onClick={(e) => {e.preventDefault()}}>
                             {option.value || ""}
                           </a>
                         </Menu.Item>
@@ -133,7 +131,7 @@ const Hero = () => {
                   trigger={["hover"]}
                 >
                   <a onClick={(e) => e.preventDefault()}>
-                    {state?.rent_range|| `Select rent range`}
+                    { `Select rent range`}
                     <DownOutlined />
                   </a>
                 </Dropdown>
@@ -154,4 +152,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default AboutUs;

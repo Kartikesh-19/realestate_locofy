@@ -8,10 +8,7 @@ import React from 'react';
 const Contact = () => {
   const [state, setState]=React.useState(contact_states)
   function handleChange(key, val){
-    setState({
-      ...state,
-      [key]:val
-    }) 
+    setState({...state,[key]:val}) 
   }
   return (
     <div className="self-stretch bg-primary-50 flex flex-row flex-wrap py-[86px] px-[5px] items-start justify-center text-center text-21xl text-primary-800 font-body-regular-600">
