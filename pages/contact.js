@@ -6,10 +6,32 @@ let contact_states={
 }
 import React from 'react';
 import Header from '../components/header'
+import {createClient} from '@supabase/supabase-js'
 const Contact = () => {
   const [state, setState]=React.useState(contact_states)
   function handleChange(key, val){
     setState({...state,[key]:val}) 
+  }
+  const sendToApi=async()=>{
+    alert(`test`)
+    let obj={
+    fname:state?.fname,
+    lname:state?.lname,
+    email:state?.email,
+    textArea:state?.textArea
+  }
+  const supabase = createClient(process.env.NEXT_PUBLIC_URL, process.env.NEXT_PUBLIC_KEY);
+   try {
+    const { data, error } = await supabase.from("contact").insert([obj]);
+    if (error) {
+      console.error("Error inserting data:", error.message);
+    } else {
+      console.log("Data inserted successfully:", data);
+    }
+  } catch (error) {
+    console.error("API error:", error);
+  }
+
   }
   return (
     <>
@@ -69,7 +91,7 @@ const Contact = () => {
               required
               rows={10}
             />
-            <button className="cursor-pointer [border:none] p-0 bg-primary-500 rounded w-[222px] h-[46px] flex flex-col items-center justify-center">
+            <button className="cursor-pointer [border:none] p-0 bg-primary-500 rounded w-[222px] h-[46px] flex flex-col items-center justify-center" type="submit" onClick={sendToApi}>
               <div className="relative text-base font-roboto text-gray-white text-center inline-block w-[203.12px]">
                 Submit
               </div>
