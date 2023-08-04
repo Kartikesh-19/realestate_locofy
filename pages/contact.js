@@ -1,19 +1,44 @@
+
 let contact_states={
-  fname:null,
-  lname:null,
-  email:null,
-  textArea:null
+  fname:"",
+  lname:"",
+  email:"",
+  textArea:""
 }
 import React from 'react';
 import Header from '../components/header'
 import {createClient} from '@supabase/supabase-js'
 const Contact = () => {
   const [state, setState]=React.useState(contact_states)
+  const [error, setError]=React.useState(contact_states)
   function handleChange(key, val){
-    setState({...state,[key]:val}) 
+    setState(prev=>({...prev,[key]:val})) 
+    validateInput(key,val)
   }
+   const validateInput = (name, value) => {
+    //handle validation at the onChange
+    let err = { ...error };
+
+    switch (name) {
+      case "fname":
+        err.fname = value.trim() === "" ? "Enter the firstname" : "";
+        break;
+      case "lname":
+        err.lname = value.trim() === "" ? "Enter the lastname" : "";
+        break;
+      case "email":
+        err.email = !/\S+@\S+\.\S+/.test(value) ? "Invalid email address" : "";
+        break;
+      case "textArea":
+        err.textArea = value.trim() === "" ? "Enter your textarea" : "";
+        break;
+      default:
+        break;
+    }
+
+    setError(err);
+  };
   const sendToApi=async()=>{
-    alert(`test`)
     let obj={
     fname:state?.fname,
     lname:state?.lname,
@@ -23,6 +48,7 @@ const Contact = () => {
   const supabase = createClient(process.env.NEXT_PUBLIC_URL, process.env.NEXT_PUBLIC_KEY);
    try {
     const { data, error } = await supabase.from("contact").insert([obj]);
+    setState(contact_states)
     if (error) {
       console.error("Error inserting data:", error.message);
     } else {
@@ -31,8 +57,8 @@ const Contact = () => {
   } catch (error) {
     console.error("API error:", error);
   }
-
   }
+  console.log('er==========>', error)
   return (
     <>
       <Header {...{hamburger:false}} />
@@ -66,15 +92,17 @@ const Contact = () => {
               maxLength={100}
               minLength={2}
             />
+            <p className="text-sm">{error?.fname}</p>
             <input
              className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
               type="text"
               value={state?.lname}
-                 onChange={(e)=>handleChange('lname',e.target.value )}
+              onChange={(e)=>handleChange('lname',e.target.value )}
               placeholder="Last name"
               maxLength={100}
               minLength={2}
             />
+          <p className="text-sm">{error?.lname}</p>
             <input
               className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
               type="email"
@@ -83,6 +111,7 @@ const Contact = () => {
               placeholder="Email id"
               required
             />
+            <p className="text-sm">{error?.email}</p>
             <textarea
               className="bg-[transparent] h-[105px] font-roboto text-base self-stretch rounded box-border flex flex-col p-3 items-start justify-start border-[1px] border-solid border-gray"
               value={state?.textArea}
@@ -91,6 +120,7 @@ const Contact = () => {
               required
               rows={10}
             />
+               <p className="text-sm">{error?.textArea}</p>
             <button className="cursor-pointer [border:none] p-0 bg-primary-500 rounded w-[222px] h-[46px] flex flex-col items-center justify-center" type="submit" onClick={sendToApi}>
               <div className="relative text-base font-roboto text-gray-white text-center inline-block w-[203.12px]">
                 Submit
