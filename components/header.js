@@ -6,7 +6,7 @@ properties:"PROPERTIES",
 gallery:"GALLERY",
 blog:"BLOG",
 contact:"CONTACT US",
-search:"SEARCH",
+// search:"SEARCH",
 }
 import Link from 'next/link'
 import {useRouter} from 'next/router'
@@ -27,8 +27,8 @@ import React,{useState} from 'react';
         return "/blog";
         case "contact":
          return "/contact";
-        case "search":
-         return "/search";
+        // case "search":
+        //  return "/search";
          default:
       return "/";
       }
