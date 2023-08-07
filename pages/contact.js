@@ -38,6 +38,25 @@ const Contact = () => {
 
     setError(err);
   };
+
+
+  const validateONSubmit=()=>{
+          let err={};
+          
+          if(!state?.fname){
+            err.fname="Enter your firstname"
+          }
+          if(!state?.lname){
+            err.lname="Enter your lastname"
+          }
+          if(!state?.email){
+            err.email="Enter your eamil"
+          }
+          if(!state?.textArea){
+            err.lname="Enter your text area"
+          }
+          setError(err)
+  }
   const sendToApi=async()=>{
     let obj={
     fname:state?.fname,
@@ -45,6 +64,7 @@ const Contact = () => {
     email:state?.email,
     textArea:state?.textArea
   }
+  validateONSubmit()
   const supabase = createClient(process.env.NEXT_PUBLIC_URL, process.env.NEXT_PUBLIC_KEY);
    try {
     const { data, error } = await supabase.from("contact").insert([obj]);
@@ -58,7 +78,6 @@ const Contact = () => {
     console.error("API error:", error);
   }
   }
-  console.log('er==========>', error)
   return (
     <>
       <Header {...{hamburger:false}} />
@@ -92,7 +111,7 @@ const Contact = () => {
               maxLength={100}
               minLength={2}
             />
-            <p className="text-sm">{error?.fname}</p>
+            <span className="text-sm">{error?.fname}</span>
             <input
              className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
               type="text"
