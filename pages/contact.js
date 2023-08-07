@@ -18,7 +18,6 @@ const Contact = () => {
    const validateInput = (name, value) => {
     //handle validation at the onChange
     let err = { ...error };
-
     switch (name) {
       case "fname":
         err.fname = value.trim() === "" ? "Enter the firstname" : "";
