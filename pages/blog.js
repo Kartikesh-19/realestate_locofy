@@ -8,11 +8,13 @@ const Blog = () => {
       id: 1,
       title: "Local Market Trends",
       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+      did:'+918580930570'
     },
     {
       id: 2,
       title: "Home Buying Tips",
       content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit...",
+       did:'+918988237574'
     },
     // Add more blog post objects here with different titles and content
   ];
@@ -24,29 +26,39 @@ const Blog = () => {
   };
 
   return (
-    <>
-        <Header {...{hamburger:false}} />
-        <div className="self-stretch flex flex-col py-[120px] px-[30px] items-center justify-start bg-[url(/hero-section@3x.png)] bg-cover bg-no-repeat bg-[top] text-center text-33xl text-gray-white font-body-regular-400">
-                <div className="self-stretch flex flex-col items-center justify-end gap-[24px] md:max-w-full">
-                    <div className="self-stretch relative leading-[48px] font-semibold">
-                    About Us
-                    </div>     
-                    <hr/>
-                        <div className="flex flex-row items-start justify-start gap-[30px] lg:hidden">
-                            {blogPosts.map((blog) => (
-                                <li key={blog.id} onClick={() => handleBlogSelection(blog)}>
-                                {blog.title}
-                                </li>
-                            ))}
-                        </div>    
-                </div>
-                <div className="text-xl blog-content">
-                    <h2 className="text-gray-white">{selectedBlog.title}</h2>
-                    <p>{selectedBlog.content}</p>
-                </div>
-    </div>
-</>
-
+  <>
+      <Header hamburger={false} />
+      <div className="flex flex-col items-center justify-center py-16 px-4 md:px-8 bg-gradient-to-b from-black to-transparent bg-cover bg-no-repeat bg-top text-center text-white font-body-regular-400">
+        <div className="max-w-3xl w-full">
+          <h1 className="text-4xl md:text-5xl font-semibold mb-4">
+            Contact Us
+          </h1>
+          <hr className="border-t border-primary-300 mb-6" />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
+            {blogPosts.map((blog) => (
+              <div
+                key={blog.id}
+                onClick={() => handleBlogSelection(blog)}
+                className="cursor-pointer transition-all duration-300 bg-gray-900 bg-opacity-50 p-4 rounded-md hover:bg-opacity-75 focus:bg-opacity-75 hover:bg-primary-300 focus:bg-primary-300"
+              >
+                {blog.title}
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="mt-10 max-w-3xl w-full text-lg">
+          {selectedBlog && (
+            <>
+              <h2 className="text-primary-300 text-xl font-semibold mb-2">
+                {selectedBlog?.title}
+              </h2>
+              <p className="text-gray-300 mb-4">{selectedBlog?.content}</p>
+              <p className="text-gray-400">{selectedBlog?.did}</p>
+            </>
+          )}
+        </div>
+      </div>
+    </>
     
   );
 };
