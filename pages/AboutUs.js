@@ -9,7 +9,7 @@ const AboutUs = () => {
   <>
   <Header hamburger={false} />
   <div className="flex flex-col py-[400px] px-[30px] items-center justify-start bg-[url(/hero-section@3x.png)] bg-cover bg-no-repeat bg-top text-center text-33xl text-gray-white font-body-regular-400">
-    <div className="flex flex-col items-center justify-end gap-[24px] md:max-w-full bg-black bg-opacity-50 p-5 rounded-lg">
+    <div className="flex flex-col items-center justify-end gap-[24px] md:max-w-full bg-black bg-opacity-50 p-8 rounded-lg">
       <div className="relative leading-[48px] font-semibold text-white">
         About Us
       </div>
