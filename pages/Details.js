@@ -2,6 +2,7 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import image from "../public/card-2@3x.png";
+import Header from '../components/header'
 
 let property_details = [
   {
@@ -19,7 +20,8 @@ let property_details = [
 const Details = () => {
   const router = useRouter();
 
-  return (
+  return (<>
+    <Header hamburger={false} />
     <div className="flex flex-col py-6 px-4 md:px-8 items-center justify-center gap-6 text-center text-2xl text-primary-800 font-body-regular-600">
   <div className="flex flex-col items-center justify-center gap-4">
     <div className="relative text-4xl font-semibold text-center">House Details</div>
@@ -50,8 +52,8 @@ const Details = () => {
     </div>
   </div>
 </div>
-
-  );
+</>
+);
 };
 
 export default Details;
