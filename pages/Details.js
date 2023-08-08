@@ -12,9 +12,9 @@ let property_details = [
       "6 bedroom home, one and half story home located within minutes of downtown monroe. This home has great potential. Schedule your showing today.",
     value: "25 listings",
     img: image,
-    text: "Property Title 1", // Add a title for the property
+    text: "Property Title 1", 
   },
-  // Add more property details here...
+
 ];
 
 const Details = () => {

@@ -40,7 +40,7 @@ const AreaContainer = () => {
           <div className="self-stretch flex flex-row items-start justify-center gap-[24px] lg:flex-row md:flex-col">
             <Link
               className="cursor-pointer [text-decoration:none] flex-1 rounded-lg h-[241px] flex flex-row p-2.5 box-border items-start justify-start relative bg-[url(/card-4@3x.png)] bg-cover bg-no-repeat bg-[top] text-[inherit] md:flex-[unset] md:self-stretch"
-              href="/"
+              href="/Details"
             >
               <div className="my-0 mx-[!important] absolute top-[16px] left-[16px] flex flex-col items-start justify-start gap-[11px] z-[0]">
                 <div className="relative leading-[32px] font-semibold">
@@ -51,7 +51,7 @@ const AreaContainer = () => {
                 </div>
               </div>
             </Link>
-            <a className="[text-decoration:none] flex-1 rounded-lg h-[241px] flex flex-row p-2.5 box-border items-start justify-start relative bg-[url(/card-5@3x.png)] bg-cover bg-no-repeat bg-[top] text-[inherit] md:flex-[unset] md:self-stretch">
+            <a className="[text-decoration:none] flex-1 rounded-lg h-[241px] flex flex-row p-2.5 box-border items-start justify-start relative bg-[url(/card-5@3x.png)] bg-cover bg-no-repeat bg-[top] text-[inherit] md:flex-[unset] md:self-stretch" href="/Details" >
               <div className="my-0 mx-[!important] absolute top-[16px] left-[16px] flex flex-col items-start justify-start gap-[11px] z-[0]">
                 <div className="relative leading-[32px] font-semibold">
                   Centerville
