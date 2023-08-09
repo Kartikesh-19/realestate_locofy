@@ -1,9 +1,9 @@
 import Link from "next/link";
 import {useRouter} from "next/router";
 let property_by_area=[
-  {text:"Centerville", value:"25 listings"},
-  {text:"Centerville", value:"25 listings"},
-  {text:"Centerville", value:"25 listings"},
+  {text:"Centerville", value:"Detail listings"},
+  {text:"Apartment", value:"Detail listings"},
+  {text:"Omega City", value:"Detail listings"},
  
 ]
 const AreaContainer = () => {

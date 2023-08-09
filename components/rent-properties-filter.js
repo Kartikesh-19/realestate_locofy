@@ -1,11 +1,34 @@
 import PropertyRentCard from "./property-rent-card";
+import React,{useState} from 'react'
 
 const RentPropertiesFilter = () => {
   let backgoundImage=[
    {propBackgroundImage:`url("/card-21@3x.png")`},
    {propBackgroundImage:`url("/card-31@3x.png")`},
-   {propBackgroundImage:`url("/card-41@3x.png")`}
+   {propBackgroundImage:`url("/card-41@3x.png")`},
+   {propBackgroundImage:`url("/unsplashrlwe8f8anoc7@2x.png")`},
+
+   {propBackgroundImage:`url("/card-21@3x.png")`},
+   {propBackgroundImage:`url(/unsplashrlwe8f8anoc8@2x.png)`},
+   {propBackgroundImage:`url("/card-31@3x.png")`},
+   {propBackgroundImage:`url("/card-41@3x.png")`},
+  
+
+   {propBackgroundImage:`url("/card-21@3x.png")`},
+   {propBackgroundImage:`url("/card-31@3x.png")`},
+   {propBackgroundImage:`url("/unsplashrlwe8f8anoc8@2x.png")`},
+   {propBackgroundImage:`url("/card-41@3x.png")`},
+
+   {propBackgroundImage:`url("/unsplashrlwe8f8anoc10@2x.png")`},
+   {propBackgroundImage:`url("/card-21@3x.png")`},
+   {propBackgroundImage:`url("/card-31@3x.png")`},
+   {propBackgroundImage:`url("/card-41@3x.png")`},
   ]
+  const [displayMoreImg, setDisplayMoreImg]=useState(4)
+  const loadMoreListing=(e)=>{
+    e.preventDefault();
+    setDisplayMoreImg(displayMoreImg + 4)
+  }
   return (
     <div className="self-stretch flex flex-col py-[86px] px-0 items-center justify-start gap-[39px] text-center text-21xl text-primary-800 font-body-regular-600">
       <div className="self-stretch flex flex-col items-center justify-start gap-[40px] max-w-[95%px]">
@@ -21,10 +44,10 @@ const RentPropertiesFilter = () => {
         </div>
         <div className="self-stretch flex flex-row flex-wrap items-start justify-center gap-[40px] text-left text-base text-gray-white">
           <PropertyRentCard />
-         {backgoundImage.map(val=><PropertyRentCard propBackgroundImage={val?.propBackgroundImage} />)}
+         {backgoundImage.slice(0,displayMoreImg).map(val=><PropertyRentCard propBackgroundImage={val?.propBackgroundImage} />)}
         </div>
       </div>
-      <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded flex flex-row items-start justify-start">
+      <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded flex flex-row items-start justify-start" onClick={(e)=>{loadMoreListing(e)}}>
         <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-gray-white text-center">
           Load more listing
         </div>

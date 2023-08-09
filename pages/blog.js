@@ -33,13 +33,13 @@ const Blog = () => {
           <h1 className="text-4xl md:text-5xl font-semibold mb-4">
             Contact Us
           </h1>
-          <hr className="border-t border-primary-300 mb-6" />
+          <hr className="border-t border-primary-300 mb-6 " />
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-4 mt-6">
             {blogPosts.map((blog) => (
               <div
                 key={blog.id}
                 onClick={() => handleBlogSelection(blog)}
-                className="cursor-pointer transition-all duration-300 bg-gray-900 bg-opacity-50 p-4 rounded-md hover:bg-opacity-75 focus:bg-opacity-75 hover:bg-primary-300 focus:bg-primary-300"
+                className="cursor-pointer transition-colors duration-300 bg-gray-900 bg-opacity-50 p-4 rounded-md hover:text-blue "
               >
                 {blog.title}
               </div>
