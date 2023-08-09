@@ -5,7 +5,7 @@ import Header from "../components/header";
 import PropertiesGrid from "../components/properties-grid";
 import Footer from "../components/footer";
 import {createClient} from '@supabase/supabase-js'
-import { useEffect, useState } from "react";
+import React,{ useEffect, useState } from "react";
 
 const defaultOrder=[
   {
@@ -45,6 +45,8 @@ const PropertiesGridView = () => {
     fetchProperties();
 
   },[])
+  const [sortBy, setSortBy]=useState('')
+  console.log('=============sortBy',sortBy)
   return (
     <div className="bg-gray-white w-full flex flex-col items-start justify-start text-center text-33xl text-gray-white font-body-regular-400">
       <Header hamburger={false} />
@@ -76,7 +78,7 @@ const PropertiesGridView = () => {
                         { value: "Date" },                       
                       ].map((option, index) => (
                         <Menu.Item key={index}>
-                          <a onClick={(e) => {e.preventDefault()}}>
+                          <a onClick={(e) => {e.preventDefault(); setSortBy(option?.value)}}>
                             {option.value || ""}
                           </a>
                         </Menu.Item>
@@ -87,7 +89,7 @@ const PropertiesGridView = () => {
                   trigger={["hover"]}
                 >
                   <a onClick={(e) => e.preventDefault()}>
-                    { `Default Order`}
+                    { !sortBy? `Default Order`:sortBy}
                     <DownOutlined />
                   </a>
                 </Dropdown>
