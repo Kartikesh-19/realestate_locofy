@@ -36,17 +36,33 @@ const defaultOrder=[
 
 const PropertiesGridView = () => {
   const client =createClient(process.env.NEXT_PUBLIC_URL,process.env.NEXT_PUBLIC_KEY)
+  let propertiesPerPage=10;
   const [properties, setProperties]=useState([])
+   const [currentPage, setCurrentPage] = useState(1);
   useEffect(()=>{
-    const fetchProperties=async()=>{
-      const result=await client.from('properties').select('*');
-      setProperties(result?.data??[])
-    }
+    const fetchProperties = async () => {
+      const offset = (currentPage - 1) * propertiesPerPage;
+      const { data, error } = await client
+        .from("properties")
+        .select("*")
+        .limit(propertiesPerPage)?.range(offset, offset + propertiesPerPage - 1);
+
+      if (error) {
+        console.error("Error fetching properties:", error);
+        return;
+      }
+
+      setProperties(data);
+    };
+
     fetchProperties();
 
-  },[])
+  },[currentPage])
   const [sortBy, setSortBy]=useState('')
   console.log('=============sortBy',sortBy)
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
   return (
     <div className="bg-gray-white w-full flex flex-col items-start justify-start text-center text-33xl text-gray-white font-body-regular-400">
       <Header hamburger={false} />
@@ -98,8 +114,10 @@ const PropertiesGridView = () => {
         <PropertiesGrid allProperties={properties} />
         <div className="flex flex-row items-end justify-center gap-[8px] text-center text-primary-500">
          <Pagination
-              defaultCurrent={1}
-              total={50}
+          current={currentPage}
+          pageSize={propertiesPerPage}
+          total={14}
+          onChange={handlePageChange}
          />
         </div>
       </div>
