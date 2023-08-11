@@ -59,7 +59,6 @@ const PropertiesGridView = () => {
 
   },[currentPage])
   const [sortBy, setSortBy]=useState('')
-  console.log('=============sortBy',sortBy)
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
