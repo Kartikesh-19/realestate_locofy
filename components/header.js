@@ -6,11 +6,11 @@ properties:"PROPERTIES",
 gallery:"GALLERY",
 blog:"BLOG",
 contact:"CONTACT US",
-// search:"SEARCH",
 }
 import Link from 'next/link'
 import {useRouter} from 'next/router'
 import React,{useState} from 'react';
+import CustomDrawer from './customDrawer';
  export const handleRouter=(key)=>{
       switch(key){
         case "home":
@@ -43,6 +43,11 @@ const Header = ({ hamburger}) => {
       let route=handleRouter(key)
       router.push(route)
     }
+     const [isOpen, setIsOpen] = useState(false);
+
+  const toggleDrawer = () => {
+    setIsOpen(!isOpen);
+  };
    
   return (
     <header className="self-stretch bg-gray-white h-[98px] flex flex-row py-[22px] px-20 box-border items-center justify-center sticky w-full top-[0] [background:white] z-[2] text-center text-5xl text-primary-500 font-body-regular-600 lg:pl-10 lg:pr-10 lg:box-border md:pl-6 md:pr-6 md:box-border">
@@ -68,8 +73,8 @@ const Header = ({ hamburger}) => {
             </div>
             )})}
           </div> 
-          {!hamburger && (
-            <button className="cursor-pointer [border:none] p-0 bg-[transparent] hidden flex-row items-center justify-center lg:flex">
+          {(!hamburger && !isOpen) && (
+            <button className="cursor-pointer [border:none] p-0 bg-[transparent] hidden flex-row items-center justify-center lg:flex" onClick={toggleDrawer}>
               <img
                 className="relative w-6 h-6 overflow-hidden shrink-0 md:flex"
                 alt=""
@@ -78,6 +83,7 @@ const Header = ({ hamburger}) => {
             </button>
           )}
         </div>
+      {isOpen && <CustomDrawer {...{isOpen}}/>}
       </div>
     </header>
   );
