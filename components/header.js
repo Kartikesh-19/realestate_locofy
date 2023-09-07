@@ -27,8 +27,6 @@ import CustomDrawer from './customDrawer';
         return "/blog";
         case "contact":
          return "/contact";
-        // case "search":
-        //  return "/search";
          default:
       return "/";
       }

@@ -5,7 +5,7 @@ const Drawer = ({isOpen}) => {
   return (
    /* Drawer Component */
 <div className={`drawer ${isOpen ? 'right-0' : '-right-300'} fixed bg-white top-0 bottom-0 w-100 md:w-[25%] lg:w-80 xl:w-96 transition-transform duration-300 ease-in-out transform z-10`}>  {/* Use Tailwind classes to control left position */}
-  <div className="drawer-content">
+  <div className="drawer-content flex flex-col h-full">
     <div className="drawer-header p-4 border-b border-gray-300"> {/* Use padding and border utilities */}
       <p className="text-lg font-bold">Kartikesh Sharma</p>
       <p className="text-gray-600">kartikeshsharma59@gmail.com</p>
@@ -14,7 +14,7 @@ const Drawer = ({isOpen}) => {
 
     <div className="divider h-1 bg-gray-300 mx-4 my-2" /> {/* Use height, background-color, and margin utilities */}
     
-    <div className="drawer-links flex-grow p-6"> {/* Use flex utilities and padding */}
+    <div className="drawer-links flex-grow p-6 "> {/* Use flex utilities and padding */}
       <Link href="/AboutUs" className="flex items-center justify-center gap-2 text-gray-700 hover:text-blue-500">
         About Us
       </Link>
@@ -39,9 +39,6 @@ const Drawer = ({isOpen}) => {
     </div>
   </div>
 </div>
-
-
-
   );
 };
 
