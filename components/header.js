@@ -53,7 +53,7 @@ const Header = ({ hamburger}) => {
         <Link href="/" className="flex flex-row items-center justify-center gap-[8px]">
           <img className="relative w-11 h-11" alt="" src="/houseline.svg" />
           <div className="flex flex-col items-start justify-start">
-            <div className="relative leading-[24px] font-semibold">REIS</div>
+            <div className="relative leading-[24px] font-semibold">KARTIKESH</div>
             <div className="relative text-sm leading-[16px] font-medium">
               Real State
             </div>

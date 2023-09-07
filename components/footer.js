@@ -10,7 +10,7 @@ const Footer = () => {
           <div className="flex flex-row items-center justify-center gap-[8px]">
             <img className="w-11 h-11" alt="" src="/houseline.svg" />
             <div className="flex flex-col items-start justify-start">
-              <div className=" leading-[24px] font-semibold">REIS</div>
+              <div className=" leading-[24px] font-semibold">KARTIKESH</div>
               <div className=" text-sm leading-[16px] font-medium">
                 Real State
               </div>
@@ -20,13 +20,13 @@ const Footer = () => {
             <div className="text-5xl leading-[32px] font-semibold text-gray-black">
               Contact Us
             </div>
-            <div className="leading-[24px]">Call : +123 400 123</div>
+            <div className="leading-[24px]">Call : +9185809-30570</div>
             <div className="leading-[24px] flex items-end w-[312px]">
               Praesent nulla massa, hendrerit vestibulum gravida in, feugiat
               auctor felis.
             </div>
             <div className="leading-[24px] text-gray-700">
-              Email: example@mail.com
+              Email: kartikeshsharma59@gmail.com
             </div>
           </div>
           <div className="w-[304px] flex flex-row items-center justify-between">
