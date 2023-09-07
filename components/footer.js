@@ -1,4 +1,5 @@
 
+import Link from 'next/link'; 
 const Footer = () => {
 
   return (
@@ -29,42 +30,42 @@ const Footer = () => {
               Email: kartikeshsharma59@gmail.com
             </div>
           </div>
-          <div className="w-[304px] flex flex-row items-center justify-between">
-            <div className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
+          <div className="w-[250px] flex flex-row items-center justify-between">
+            <Link href="https://www.facebook.com/profile.php?id=100008933941319" className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
               <img
                 className=" w-5 h-[21.67px]"
                 alt=""
                 src="/social-media-logo.svg"
               />
-            </div>
-            <div className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
+            </Link>
+            {/* <Link href="" className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
               <img
                 className="w-5 h-5 overflow-hidden shrink-0"
                 alt=""
                 src="/social-media-logo1.svg"
               />
-            </div>
-            <div className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
+            </Link > */}
+            <Link href="https://www.linkedin.com/in/kartikesh-sharma-b1aa46203" className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
               <img
                 className="w-5 h-5 overflow-hidden shrink-0"
                 alt=""
                 src='/social-media-logo2.svg'
               />
-            </div>
-            <div className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
+            </Link >
+            <Link href="https://instagram.com/kartikesh_sharma?utm_source=qr&igshid=MzNlNGNkZWQ4Mg==" className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
               <img
                 className="w-5 h-5 overflow-hidden shrink-0"
                 alt=""
                 src="/social-media-logo3.svg"
               />
-            </div>
-            <div className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
+            </Link >
+            {/* <Link href="" className="rounded bg-primary-50 flex flex-col p-3.5 items-center justify-center">
               <img
                 className="w-5 h-5 overflow-hidden shrink-0"
                 alt=""
                 src="/social-media-logo4.svg"
               />
-            </div>
+            </Link> */}
           </div>
         </div>
         <div className="w-[173px] flex flex-col items-start justify-start gap-[32px]">
