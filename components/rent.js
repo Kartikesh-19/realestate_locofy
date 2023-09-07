@@ -78,7 +78,8 @@ const RentPropertiesForm = () => {
         </div>
       </div>
       <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded flex flex-row items-start justify-start"
-        onClick={(e)=>{loadMoreListings(e)}}
+        onClick={(e)=>{images?.length && loadMoreListings(e)}}
+        disabled={displayCount===16?true:false}
         >
         <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-gray-white text-center">
           Load more listing

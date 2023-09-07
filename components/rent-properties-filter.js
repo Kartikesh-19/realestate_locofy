@@ -25,6 +25,7 @@ const RentPropertiesFilter = () => {
    {propBackgroundImage:`url("/card-41@3x.png")`},
   ]
   const [displayMoreImg, setDisplayMoreImg]=useState(4)
+  console.log('PropertiesGrid',displayMoreImg,displayMoreImg.length)
   const loadMoreListing=(e)=>{
     e.preventDefault();
     setDisplayMoreImg(displayMoreImg + 4)
@@ -47,7 +48,8 @@ const RentPropertiesFilter = () => {
          {backgoundImage.slice(0,displayMoreImg).map(val=><PropertyRentCard propBackgroundImage={val?.propBackgroundImage} />)}
         </div>
       </div>
-      <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded flex flex-row items-start justify-start" onClick={(e)=>{loadMoreListing(e)}}>
+      <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded flex flex-row items-start justify-start" onClick={(e)=>{backgoundImage.length && loadMoreListing(e)}} 
+      disabled={displayMoreImg===20?true:false}>
         <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-gray-white text-center">
           Load more listing
         </div>
