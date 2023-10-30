@@ -46,6 +46,7 @@ const PropertiesGridView = () => {
         .from("properties")
         .select("*")
         .limit(propertiesPerPage)?.range(offset, offset + propertiesPerPage - 1);
+      console.log("🚀 ~ file: properties.js:49 ~ fetchProperties ~ data:", data)
 
       if (error) {
         console.error("Error fetching properties:", error);
