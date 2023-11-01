@@ -1,4 +1,30 @@
 import InfoCard from "./info-card";
+const arr=[
+  { 
+    id:'1',
+  image:"/icon.svg",
+  text:"Sell your home",
+  propWidth:null
+},
+{
+      id:'2',
+  image:"icon1.svg",
+  text:"Rent your home",
+  propWidth:'312px'
+},
+{
+      id:'3',
+  image:"/icon2.svg",
+  text:"Buy a home",
+  propWidth:"unset"
+},
+{
+      id:'4',
+  image:"/icon3.svg",
+  text:"Free marketing",
+  propWidth:"312px"
+}
+]
 
 const AreaFeatureCardContainer = () => {
   return (
@@ -15,25 +41,15 @@ const AreaFeatureCardContainer = () => {
           </div>
         </div>
         <div className="self-stretch flex flex-row flex-wrap items-center justify-center gap-[86px] text-5xl text-gray-700">
-          <InfoCard
-            homeSaleRentId="/icon.svg"
-            homeSaleRentText="Sell your home"
-          />
-          <InfoCard
-            homeSaleRentId="/icon1.svg"
-            homeSaleRentText="Rent your home"
-            propWidth="312px"
-          />
-          <InfoCard
-            homeSaleRentId="/icon2.svg"
-            homeSaleRentText="Buy a home"
-            propWidth="unset"
-          />
-          <InfoCard
-            homeSaleRentId="/icon3.svg"
-            homeSaleRentText="Free marketing"
-            propWidth="312px"
-          />
+         {arr.map((val) =>(
+            <InfoCard
+             homeSaleRentId={val?.image}
+             homeSaleRentText={val?.text}
+             propWidth={val?.propWidth}
+           />
+           )
+          )}
+  
         </div>
       </div>
     </div>

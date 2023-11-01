@@ -110,7 +110,7 @@ const Contact = () => {
               maxLength={100}
               minLength={2}
             />
-            <span className="text-sm">{error?.fname}</span>
+            <span className="text-sm" style={{color:'red'}}>{error?.fname}</span>
             <input
              className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
               type="text"
@@ -120,7 +120,7 @@ const Contact = () => {
               maxLength={100}
               minLength={2}
             />
-          <p className="text-sm">{error?.lname}</p>
+          <p className="text-sm" style={{color:'red'}}>{error?.lname}</p>
             <input
               className="font-roboto text-base bg-[transparent] self-stretch rounded flex flex-col py-4 px-3 items-start justify-start border-[1px] border-solid border-gray"
               type="email"
@@ -129,7 +129,7 @@ const Contact = () => {
               placeholder="Email id"
               required
             />
-            <p className="text-sm">{error?.email}</p>
+            <p className="text-sm" style={{color:'red'}}>{error?.email}</p>
             <textarea
               className="bg-[transparent] h-[105px] font-roboto text-base self-stretch rounded box-border flex flex-col p-3 items-start justify-start border-[1px] border-solid border-gray"
               value={state?.textArea}
@@ -138,7 +138,7 @@ const Contact = () => {
               required
               rows={10}
             />
-               <p className="text-sm">{error?.textArea}</p>
+               <p className="text-sm" style={{color:'red'}}>{error?.textArea}</p>
             <button className="cursor-pointer [border:none] p-0 bg-primary-500 rounded w-[222px] h-[46px] flex flex-col items-center justify-center" type="submit" onClick={sendToApi}>
               <div className="relative text-base font-roboto text-gray-white text-center inline-block w-[203.12px]">
                 Submit
