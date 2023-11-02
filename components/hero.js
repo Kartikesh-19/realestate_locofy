@@ -1,4 +1,4 @@
-import { useCallback,useState, } from "react";
+import React,{ useCallback,useState,forwardRef,useImperativeHandle } from "react";
 import "antd/dist/antd.min.css";
 import { Menu, Dropdown, Button } from "antd";
 import hero_states from "./constants";
@@ -7,12 +7,21 @@ import {
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
 
-const Hero = () => {
+const Hero =forwardRef((props,ref) => {
+  // console.log('================ref',ref)
   const router = useRouter();
+  // const areaContainerRef = useRef();
   const [state,setState]=useState(hero_states)
+  console.log('states', state)
   const onSearchCTAClick = useCallback(() => {
     router.push("/properties");
   }, [router]);
+  const handleUpdate=(key,val)=>{
+   setState({...state, [key]:val});
+  }
+  useImperativeHandle(ref, () => (
+  {getHeroStates: () => state}
+  ),[state]);
 
   return (
     <div className="self-stretch flex flex-col py-[120px] px-[30px] items-center justify-start bg-[url(/hero-section@3x.png)] bg-cover bg-no-repeat bg-[top] text-center text-33xl text-gray-white font-body-regular-400">
@@ -60,7 +69,7 @@ const Hero = () => {
                         
                       ].map((option, index) => (
                         <Menu.Item key={index}>
-                          <a onClick={(e) =>{ e.preventDefault();setState({...state, location:option.value});}}>
+                          <a onClick={(e) =>{ e.preventDefault();handleUpdate('location',option?.value)}}>
                             {option.value || ""}
                           </a>
                         </Menu.Item>
@@ -70,7 +79,7 @@ const Hero = () => {
                   placement="bottomLeft"
                   trigger={["hover"]}
                 >
-                  <a onClick={(e) => e.preventDefault()}>
+                  <a onClick={(e) => {e.preventDefault()}}>
                     {state?.location || ` Select your city`}
                     <DownOutlined />
                   </a>
@@ -92,7 +101,10 @@ const Hero = () => {
                         { value: "Four or more bedroom apartments/houses" },
                       ].map((option, index) => (
                         <Menu.Item key={index}>
-                          <a onClick={(e) => {e.preventDefault();setState({...state, property_type:option.value});}}>
+                          <a onClick={(e) => {e.preventDefault();
+                          handleUpdate('property_type',option?.value)
+                            // setState({...state, property_type:option.value});
+                            }}>
                             {option.value || ""}
                           </a>
                         </Menu.Item>
@@ -122,7 +134,10 @@ const Hero = () => {
                         { value: "$10000+" },
                       ].map((option, index) => (
                         <Menu.Item key={index}>
-                          <a onClick={(e) => {e.preventDefault();setState({...state, rent_range:option.value});}}>
+                          <a onClick={(e) => {e.preventDefault();
+                           handleUpdate('rent_range',option?.value)
+                            // setState({...state, rent_range:option.value});
+                            }}>
                             {option.value || ""}
                           </a>
                         </Menu.Item>
@@ -152,6 +167,6 @@ const Hero = () => {
       </div>
     </div>
   );
-};
+})
 
 export default Hero;

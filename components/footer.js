@@ -83,11 +83,11 @@ const Footer = () => {
         <div className="w-[173px] flex flex-col items-start justify-start gap-[32px]">
           <div className="leading-[32px] font-semibold">Company</div>
           <div className="h-[184px] flex flex-col items-start justify-start gap-[16px] text-base text-gray-500">
-            <div className="leading-[24px]">About Us</div>
+            <div className="leading-[24px]" onClick={()=> router.push('/about')}>About Us</div>
             <div className="leading-[24px]">Press</div>
-            <div className="leading-[24px]">Contact</div>
+            <div className="leading-[24px]" onClick={()=> router.push('/contact')}>Contact</div>
             <div className="leading-[24px]">Careers</div>
-            <div className="leading-[24px]">Blog</div>
+            <div className="leading-[24px]" onClick={()=> router.push('/gallery')}>Blog</div>
           </div>
         </div>
         <div className="w-[203px] flex flex-col items-start justify-start gap-[32px]">

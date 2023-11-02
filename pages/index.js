@@ -7,10 +7,26 @@ import RentPropertiesForm from "../components/rent";
 import RentPropertiesFilter from "../components/rent-properties-filter";
 import Footer from "../components/footer";
 import PropertiesGridView from "./properties";
-import React,{useState} from 'react';
+import React,{useState,useEffect } from 'react';
 import { useLocation } from "react-router-dom";
 
 const LandingPage = () => {
+  const getContainerRef = React.useRef(null);
+  const [details, setDetails]=useState([])
+  useEffect(()=>{
+    console.log('ref',getContainerRef?.current)
+    const areaState = getContainerRef?.current?.getHeroStates();
+    console.log('AreaContainer State from ParentComponent:', areaState,getContainerRef?.current?.getHeroStates(), getContainerRef?.current?.value);
+    setDetails([...details, getContainerRef?.current?.getHeroStates()])
+
+  },[getContainerRef?.current])
+  console.log('===================>?.current',details)
+  // const getHeroStates=()=>{
+  //    if (getContainerRef.current) {
+  //     alert('hy')
+  //   }
+
+  // }
   return (
     <>
       <Head>
@@ -19,10 +35,10 @@ const LandingPage = () => {
       </Head>
       <div className="relative bg-gray-white w-full flex flex-col items-center justify-start">
         <Header {...{hamburger:false}} />
-        <Hero />
+        <Hero ref={getContainerRef}/>
         <AreaContainer />
         <AreaFeatureCardContainer />
-        <RentPropertiesForm />
+        <RentPropertiesForm  {...{areaState:details}} />
         <RentPropertiesFilter />
         {/* <Contact /> */}
         {/* <PropertiesGridView/> */}

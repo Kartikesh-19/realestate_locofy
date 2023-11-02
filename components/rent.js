@@ -1,60 +1,77 @@
 import PropertyCard from "./property-card";
-import React,{useState} from 'react'
+import React,{useState,useRef} from 'react'
 
-const RentPropertiesForm = () => {
+const RentPropertiesForm = React.forwardRef(() => {
+ 
   let images=[
             { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
+             {imgUrl:"/unsplashrlwe8f8anoc9@2x.png",
+            name:'792 Near Tdi , Mohali 160001',
+            price:'591,632'},
+             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            name:'Omega, Near Kharar Punjab fl 32456',
+            price:'591,632'},
+
             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
+
             {imgUrl:"/unsplashrlwe8f8anoc9@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
             {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
-
-            {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
-            name:'91 Allium Place, Orlando fl 32456',
-            price:'591,632'},
-            {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
-            name:'91 Allium Place, Orlando fl 32456',
-            price:'591,632'},
-            {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
-            name:'91 Allium Place, Orlando fl 32456',
-            price:'591,632'},
             { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
+            price:'591,632'},           
+            {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
+            name:'Aura, Near Kharar Punjab fl 32456',
             price:'591,632'},
 
-            {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
-            name:'91 Allium Place, Orlando fl 32456',
+            { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
+            name:'Anshal, Near Kharar Punjab fl 32456',
+            price:'591,632'},
+             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            name:'Shivjot, Near Kharar Punjab fl 32456',
             price:'591,632'},
             {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
-            name:'91 Allium Place, Orlando fl 32456',
+            name:'Shivalik, Near Kharar Punjab fl 32456',
             price:'591,632'},
             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
-            { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
-            name:'91 Allium Place, Orlando fl 32456',
-            price:'591,632'},
+
+            // {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
+            // name:'91 Allium Place, Orlando fl 32456',
+            // price:'591,632'},
+            // {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            // name:'91 Allium Place, Orlando fl 32456',
+            // price:'591,632'},
+            // { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
+            // name:'91 Allium Place, Orlando fl 32456',
+            // price:'591,632'},
 
             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
-           { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
+           {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
-            {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            {imgUrl:"/unsplashrlwe8f8anoc9@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
             { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
   ]
+//  const sorting =()=>{
+//     images.sort((a,b)=>{
+
+//     })
+//   }
   const [displayCount, setDisplayCount] = useState(4); 
   const loadMoreListings = (e) => {
     e.preventDefault();
@@ -74,7 +91,7 @@ const RentPropertiesForm = () => {
           </div>
         </div>
         <div className="self-stretch flex flex-row flex-wrap py-0 px-2.5 items-center justify-center gap-[32px]">
-          {images.slice(0, displayCount).map((val)=><PropertyCard imgUrl={val?.imgUrl} name={val?.name}price={val?.price}/>)}
+          {images.slice(0, displayCount).map((val)=><PropertyCard imgUrl={val?.imgUrl} name={val?.name} price={val?.price}/>)}
         </div>
       </div>
       <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded flex flex-row items-start justify-start"
@@ -87,6 +104,6 @@ const RentPropertiesForm = () => {
       </button>
     </form>
   );
-};
+})
 
 export default RentPropertiesForm;

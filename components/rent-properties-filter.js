@@ -1,7 +1,8 @@
 import PropertyRentCard from "./property-rent-card";
 import React,{useState} from 'react'
 
-const RentPropertiesFilter = () => {
+const RentPropertiesFilter = ({areaState}) => {
+  console.log('areaState',areaState)
   let backgoundImage=[
    {propBackgroundImage:`url("/card-21@3x.png")`},
    {propBackgroundImage:`url("/card-31@3x.png")`},
@@ -25,7 +26,6 @@ const RentPropertiesFilter = () => {
    {propBackgroundImage:`url("/card-41@3x.png")`},
   ]
   const [displayMoreImg, setDisplayMoreImg]=useState(4)
-  console.log('PropertiesGrid',displayMoreImg,displayMoreImg.length)
   const loadMoreListing=(e)=>{
     e.preventDefault();
     setDisplayMoreImg(displayMoreImg + 4)
@@ -35,7 +35,7 @@ const RentPropertiesFilter = () => {
       <div className="self-stretch flex flex-col items-center justify-start gap-[40px] max-w-[95%px]">
         <div className="w-[688px] flex flex-col items-center justify-start gap-[24px] max-w-[95%px] lg:max-w-[95%] md:self-stretch md:w-auto">
           <div className="self-stretch relative leading-[48px] font-semibold">
-            Latest Properties of Rent
+            Filtered Properties of Rent
           </div>
           <div className="self-stretch relative text-xl leading-[28px] text-lightslategray">
             Vestibulum ante ipsum primis in faucibus orci luctus et ultrices

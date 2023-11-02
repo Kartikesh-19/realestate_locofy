@@ -3,7 +3,6 @@ import { Pagination, Dropdown,Menu } from "antd";
 import {DownOutlined} from "@ant-design/icons";
 import Header from "../components/header";
 import PropertiesGrid from "../components/properties-grid";
-console.log("🚀 ~ file: properties.js:6 ~ PropertiesGrid:", PropertiesGrid)
 import Footer from "../components/footer";
 import {createClient} from '@supabase/supabase-js'
 import React,{ useEffect, useState } from "react";
