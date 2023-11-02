@@ -1,6 +1,8 @@
 
-import Link from 'next/link'; 
+import Link from 'next/link';
+import {useRouter}from 'next/router'; 
 const Footer = () => {
+ const router=useRouter()
 
   return (
     <div
@@ -71,11 +73,11 @@ const Footer = () => {
         <div className="w-[173px] flex flex-col items-start justify-start gap-[32px]">
           <div className="leading-[32px] font-semibold">Features</div>
           <div className="h-[184px] flex flex-col items-start justify-start gap-[16px] text-base text-gray-500">
-            <div className="leading-[24px]">Home</div>
+            <div className="leading-[24px]" onClick={()=> router.push('/')}>Home</div>
             <div className="leading-[24px]">Become a Host</div>
-            <div className="leading-[24px]">Pricing</div>
-            <div className="leading-[24px]">Blog</div>
-            <div className="leading-[24px]">Contact</div>
+            <div className="leading-[24px]" onClick={()=> router.push('/properties')}>Pricing</div>
+            <div className="leading-[24px]" onClick={()=> router.push('/gallery')}>Blog</div>
+            <div className="leading-[24px]" onClick={()=> router.push('/contact')}>Contact</div>
           </div>
         </div>
         <div className="w-[173px] flex flex-col items-start justify-start gap-[32px]">
