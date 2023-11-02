@@ -49,7 +49,7 @@ const Contact = () => {
             err.lname="Enter your lastname"
           }
           if(!state?.email){
-            err.email="Enter your eamil"
+            err.email="Enter your email"
           }
           if(!state?.textArea){
             err.lname="Enter your text area"
