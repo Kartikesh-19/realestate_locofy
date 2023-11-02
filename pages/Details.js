@@ -2,6 +2,10 @@ import Link from "next/link";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import image from "../public/card-2@3x.png";
+import image1 from "../public/card-3@3x.png";
+import image2 from "../public/card-4@3x.png";
+import image3 from "../public/card-5@3x.png";
+import image4 from "../public/card-11@3x.png";
 import Header from '../components/header'
 
 let property_details = [
@@ -14,7 +18,42 @@ let property_details = [
     img: image,
     text: "Property Title 1", 
   },
-
+  {
+    location: "792, Spring Left Street, TDI 140061",
+    price_per_feet: "$10 price/sqft",
+    overview:
+      "6 bedroom home, one and half story home located within minutes of downtown monroe. This home has great potential. Schedule your showing today.",
+    value: "Testing phase",
+    img: image1,
+    text: "Property Title 2", 
+  },
+  {
+    location: "302, Ket ,Dadhol Ghumarwin, Himachal Pardesh, 174023",
+    price_per_feet: "$20 price/sqft",
+    overview:
+      "6 bedroom home, one and half story home located within minutes of downtown monroe. This home has great potential. Schedule your showing today.",
+    value: "Testing phase",
+    img: image2,
+    text: "Property Title 2", 
+  },
+  {
+    location: "Mohali India in Punjab India, 160301",
+    price_per_feet: "$8 price/sqft",
+    overview:
+      "6 bedroom home, one and half story home located within minutes of downtown monroe. This home has great potential. Schedule your showing today.",
+    value: "Testing phase",
+    img: image3,
+    text: "Property Title 2", 
+  },
+  {
+    location: "Mohali India Near TDI, 160301",
+    price_per_feet: "$15 price/sqft",
+    overview:
+      "6 bedroom home, one and half story home located within minutes of downtown monroe. This home has great potential. Schedule your showing today.",
+    value: "Testing phase",
+    img: image4,
+    text: "Property Title 2", 
+  },
 ];
 
 const Details = () => {

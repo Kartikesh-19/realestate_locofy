@@ -3,6 +3,7 @@ import { Pagination, Dropdown,Menu } from "antd";
 import {DownOutlined} from "@ant-design/icons";
 import Header from "../components/header";
 import PropertiesGrid from "../components/properties-grid";
+console.log("🚀 ~ file: properties.js:6 ~ PropertiesGrid:", PropertiesGrid)
 import Footer from "../components/footer";
 import {createClient} from '@supabase/supabase-js'
 import React,{ useEffect, useState } from "react";
@@ -38,7 +39,8 @@ const PropertiesGridView = () => {
   const client =createClient(process.env.NEXT_PUBLIC_URL,process.env.NEXT_PUBLIC_KEY)
   let propertiesPerPage=10;
   const [properties, setProperties]=useState([])
-   const [currentPage, setCurrentPage] = useState(1);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [sortBy, setSortBy]=useState('')
   useEffect(()=>{
     const fetchProperties = async () => {
       const offset = (currentPage - 1) * propertiesPerPage;
@@ -59,7 +61,27 @@ const PropertiesGridView = () => {
     fetchProperties();
 
   },[currentPage])
-  const [sortBy, setSortBy]=useState('')
+  useEffect(()=>{
+    let value=properties.sort((a,b)=>{
+      if(a.name>b.name){
+        return 1
+      }else if(b.name>a.name){
+        return -1
+      }
+      else{
+        if(a.date>b.date){
+        return -1
+       }else if(a.date<b.date){
+        return 1;
+      }else{
+        return 0;
+      }  
+    }
+    })
+    // console.log('value========>',value)
+    setProperties(value);
+  },[sortBy])
+  console.log('==============>sortBy',sortBy)
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
