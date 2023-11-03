@@ -9,6 +9,8 @@ import Footer from "../components/footer";
 import PropertiesGridView from "./properties";
 import React,{useState,useEffect } from 'react';
 import { useLocation } from "react-router-dom";
+import { Provider } from 'react-redux';
+import store from '../redux/store';
 
 const LandingPage = () => {
   const getContainerRef = React.useRef(null);
@@ -34,6 +36,7 @@ const LandingPage = () => {
         <meta name="description" content="Discover your perfect home" />
       </Head>
       <div className="relative bg-gray-white w-full flex flex-col items-center justify-start">
+        <Provider store={store}>
         <Header {...{hamburger:false}} />
         <Hero ref={getContainerRef}/>
         <AreaContainer />
@@ -43,6 +46,7 @@ const LandingPage = () => {
         {/* <Contact /> */}
         {/* <PropertiesGridView/> */}
         <Footer />
+        </Provider>
       </div>
     </>
   );

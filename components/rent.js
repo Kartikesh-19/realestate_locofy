@@ -1,29 +1,34 @@
 import PropertyCard from "./property-card";
 import React,{useState,useRef} from 'react'
 
-const RentPropertiesForm = React.forwardRef(() => {
+const RentPropertiesForm = ({areaState}) => {
+  console.log('areaState',areaState)
+  let priceRange=[
+                        { value: "591,632" },
+                        // { value: "2500-10000" },
+                        // { value: "10000+" },
+                      ]
  
   let images=[
             { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
-            price:'591,632'},
+            price:'10000'},
              {imgUrl:"/unsplashrlwe8f8anoc9@2x.png",
             name:'792 Near Tdi , Mohali 160001',
-            price:'591,632'},
+            price:'10000'},
              {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
             name:'Omega, Near Kharar Punjab fl 32456',
             price:'591,632'},
-
             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
 
             {imgUrl:"/unsplashrlwe8f8anoc9@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
-            price:'591,632'},
+            price:'10000'},
             {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
-            price:'591,632'},
+            price:'10000'},
             { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},           
@@ -39,7 +44,7 @@ const RentPropertiesForm = React.forwardRef(() => {
             price:'591,632'},
             {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
             name:'Shivalik, Near Kharar Punjab fl 32456',
-            price:'591,632'},
+            price:'10000'},
             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
@@ -66,7 +71,14 @@ const RentPropertiesForm = React.forwardRef(() => {
             { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
             name:'91 Allium Place, Orlando fl 32456',
             price:'591,632'},
-  ]
+  ];
+  let filterRange=[];
+    images.forEach((val)=>{
+    if(priceRange[0].value.includes(val?.price)){
+    filterRange.push(val)
+      
+    }
+  })
 //  const sorting =()=>{
 //     images.sort((a,b)=>{
 
@@ -104,6 +116,6 @@ const RentPropertiesForm = React.forwardRef(() => {
       </button>
     </form>
   );
-})
+}
 
 export default RentPropertiesForm;

@@ -2,7 +2,10 @@ import PropertyRentCard from "./property-rent-card";
 import React,{useState} from 'react'
 
 const RentPropertiesFilter = ({areaState}) => {
-  console.log('areaState',areaState)
+  // console.log('areaState',areaState)
+  // let value=areaState?Object.keys(areaState):null;
+  // console.log('value=============>',value)
+
   let backgoundImage=[
    {propBackgroundImage:`url("/card-21@3x.png")`},
    {propBackgroundImage:`url("/card-31@3x.png")`},
@@ -25,6 +28,7 @@ const RentPropertiesFilter = ({areaState}) => {
    {propBackgroundImage:`url("/card-31@3x.png")`},
    {propBackgroundImage:`url("/card-41@3x.png")`},
   ]
+  
   const [displayMoreImg, setDisplayMoreImg]=useState(4)
   const loadMoreListing=(e)=>{
     e.preventDefault();

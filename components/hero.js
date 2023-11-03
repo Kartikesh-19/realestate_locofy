@@ -6,16 +6,96 @@ import {
   DownOutlined,
 } from "@ant-design/icons";
 import { useRouter } from "next/router";
+import {useDispatch, useSelector} from 'react-redux'
+import {setImages} from '../redux/Slices/HandleSlice'
 
 const Hero =forwardRef((props,ref) => {
   // console.log('================ref',ref)
   const router = useRouter();
+  const dispatch=useDispatch()
+  const images=useSelector(state=> state.data)
+  console.log('===============>5678',images)
   // const areaContainerRef = useRef();
   const [state,setState]=useState(hero_states)
-  console.log('states', state)
   const onSearchCTAClick = useCallback(() => {
-    router.push("/properties");
+    // router.push("/properties");
+    
+    
   }, [router]);
+  function searchQuery(query){
+    // location:null,
+    // property_type:null,
+    // rent_range:null,
+        let images=[
+            { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'10000'},
+             {imgUrl:"/unsplashrlwe8f8anoc9@2x.png",
+            name:'792 Near Tdi , Mohali 160001',
+            price:'10000'},
+             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            name:'Omega, Near Kharar Punjab fl 32456',
+            price:'591,632'},
+            {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'591,632'},
+
+            {imgUrl:"/unsplashrlwe8f8anoc9@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'10000'},
+            {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'10000'},
+            { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'591,632'},           
+            {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
+            name:'Aura, Near Kharar Punjab fl 32456',
+            price:'591,632'},
+
+            { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
+            name:'Anshal, Near Kharar Punjab fl 32456',
+            price:'591,632'},
+             {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            name:'Shivjot, Near Kharar Punjab fl 32456',
+            price:'591,632'},
+            {imgUrl:"/unsplashrlwe8f8anoc10@2x.png",
+            name:'Shivalik, Near Kharar Punjab fl 32456',
+            price:'10000'},
+            {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'591,632'},
+
+            {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'591,632'},
+           {imgUrl:"/unsplashrlwe8f8anoc8@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'591,632'},
+            {imgUrl:"/unsplashrlwe8f8anoc9@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'591,632'},
+            { imgUrl:"/unsplashrlwe8f8anoc7@2x.png",
+            name:'91 Allium Place, Orlando fl 32456',
+            price:'591,632'},
+  ];
+  
+
+    const keywords=query
+    console.log('==================>keywords', keywords)
+    const result =images.filter((image)=>{
+      console.log('image===============>',image)
+      for(let i=1;i<images.length; i++){
+        if(image.price.includes(keywords)){
+          // alert('hy')
+         return true;
+        }
+      }
+    return false;
+    })
+    console.log('=-=-=-=->',result)
+    dispatch(setImages(result))
+  }
   const handleUpdate=(key,val)=>{
    setState({...state, [key]:val});
   }
@@ -129,9 +209,9 @@ const Hero =forwardRef((props,ref) => {
                   overlay={
                     <Menu>
                       {[
-                        { value: "$500-$2000" },
-                        { value: "$2500-$10000" },
-                        { value: "$10000+" },
+                        { value: "2000" },
+                        { value: "10000" },
+                        { value: "10000+" },
                       ].map((option, index) => (
                         <Menu.Item key={index}>
                           <a onClick={(e) => {e.preventDefault();
@@ -155,7 +235,7 @@ const Hero =forwardRef((props,ref) => {
               </div>
               <button
                 className="cursor-pointer [border:none] py-3 px-6 bg-seagreen rounded w-[102px] flex flex-row box-border items-center justify-center hover:bg-steelblue lg:hover:bg-steelblue"
-                onClick={onSearchCTAClick}
+                onClick={()=>{onSearchCTAClick();searchQuery(state?.rent_range)}}
               >
                 <div className="relative text-base leading-[24px] font-medium font-body-regular-600 text-gray-white text-center">
                   Search
