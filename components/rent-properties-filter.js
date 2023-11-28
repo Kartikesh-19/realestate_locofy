@@ -1,5 +1,6 @@
 import PropertyRentCard from "./property-rent-card";
 import React,{useState} from 'react'
+import { useSelector } from 'react-redux';
 
 const RentPropertiesFilter = ({areaState}) => {
   // console.log('areaState',areaState)
@@ -34,6 +35,8 @@ const RentPropertiesFilter = ({areaState}) => {
     e.preventDefault();
     setDisplayMoreImg(displayMoreImg + 4)
   }
+  const {images}=useSelector(state=>state.images.images)
+  console.log('===============>hello hi hanji',images)
   return (
     <div className="self-stretch flex flex-col py-[86px] px-0 items-center justify-start gap-[39px] text-center text-21xl text-primary-800 font-body-regular-600">
       <div className="self-stretch flex flex-col items-center justify-start gap-[40px] max-w-[95%px]">
@@ -49,7 +52,7 @@ const RentPropertiesFilter = ({areaState}) => {
         </div>
         <div className="self-stretch flex flex-row flex-wrap items-start justify-center gap-[40px] text-left text-base text-gray-white">
           <PropertyRentCard />
-         {backgoundImage.slice(0,displayMoreImg).map(val=><PropertyRentCard propBackgroundImage={val?.propBackgroundImage} />)}
+         {images.slice(0,displayMoreImg).map(val=><PropertyRentCard propBackgroundImage={val?.propBackgroundImage} />)}
         </div>
       </div>
       <button className="cursor-pointer [border:none] py-3 px-6 bg-primary-500 rounded flex flex-row items-start justify-start" onClick={(e)=>{backgoundImage.length && loadMoreListing(e)}} 
